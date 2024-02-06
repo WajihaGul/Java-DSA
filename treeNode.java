@@ -1,3 +1,5 @@
+import java.util.*;
+
 //CREATING A TREE
 public class treeNode{
         public int val;
@@ -32,7 +34,8 @@ class trees {
         
         //inOrderTraversal(root);
         //postOrderTraversal(root);
-        preOrderTraversal(root);
+        //preOrderTraversal(root);
+        levelOrderTraversal(root);
     }
 
 //IN ORDER TRAVERSAL OF TREE
@@ -73,5 +76,22 @@ public static void preOrderTraversal(treeNode root){
     preOrderTraversal(root.left);
 
     preOrderTraversal(root.right);
+}
+
+//LEVEL ORDER TRAVERSAL
+public static void levelOrderTraversal(treeNode root){
+Queue < treeNode > treeNodeQueue = new LinkedList<>();
+treeNodeQueue.add(root);
+
+while(!treeNodeQueue.isEmpty()){
+treeNode q = treeNodeQueue.poll();
+System.out.print(q.val+"->");
+if(q.left!=null){
+    treeNodeQueue.add(q.left);
+}
+if(q.right!=null) {
+    treeNodeQueue.add(q.right);
+}
+}
 }
 }
